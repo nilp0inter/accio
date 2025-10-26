@@ -1,0 +1,12 @@
+{
+  "name": "accio",
+  "version": "1.0.0",
+  "description": "Ultrabasic Google Auth App",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3001"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
