@@ -1,12 +1,28 @@
 {
-  "name": "accio",
-  "version": "1.0.0",
-  "description": "Ultrabasic Google Auth App",
-  "main": "index.html",
+  "name": "temp_next_app",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "npx http-server -p 3001"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.76.1",
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "http-server": "^14.1.1"
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
   }
 }
