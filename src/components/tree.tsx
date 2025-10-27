@@ -3,6 +3,7 @@
 import { supabase } from "@/lib/supabase/client"
 import { useState } from "react"
 import { useLocation } from "@/context/location-context"
+import { getObjectTypeEmoji } from "@/utils/emojis"
 
 export default function Tree({ nodes }: { nodes: any[] }) {
   return (
@@ -52,7 +53,7 @@ function TreeNode({ node }: { node: any }) {
     <li className="ml-4">
       <div onClick={handleToggle} className="cursor-pointer">
         {node.type !== "item" && (isOpen ? "[-]" : "[+]")}{" "}
-        {node.name}
+        {getObjectTypeEmoji(node.type)} {node.name}
       </div>
       {isOpen && (
         <>

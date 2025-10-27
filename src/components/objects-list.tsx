@@ -4,6 +4,7 @@ import { supabase } from "@/lib/supabase/client"
 import { useEffect, useState, useCallback } from "react"
 import ObjectForm from "./object-form"
 import AiAssistant from "./ai-assistant"
+import { getObjectTypeEmoji } from "@/utils/emojis"
 
 export default function ObjectsList({ locationId, locationType }: { locationId: number | null, locationType?: string }) {
   const [objects, setObjects] = useState<any[]>([])
@@ -178,7 +179,7 @@ export default function ObjectsList({ locationId, locationType }: { locationId: 
             <li key={object.id} className="p-2 border-b">
               <div className="flex justify-between items-center">
                 <div>
-                  <strong>{object.name}</strong> ({object.type})
+                  <strong>{getObjectTypeEmoji(object.type)} {object.name}</strong>
                   {belongsToPaths[object.id] && (
                     <div className="text-sm text-gray-600">
                       Belongs to: {belongsToPaths[object.id]}
