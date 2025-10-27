@@ -18,10 +18,18 @@ function TreeNode({ node }: { node: any }) {
   const [isOpen, setIsOpen] = useState(false)
   const [children, setChildren] = useState<any[]>([])
   const [loading, setLoading] = useState(false)
-  const { setSelectedLocation } = useLocation()
+  const { setSelectedLocation, setSelectedLocationPath } = useLocation()
 
   const handleToggle = async () => {
-    setSelectedLocation(node.id)
+    setSelectedLocation(node.id, node.type)
+
+    const { data: pathData } = await supabase
+      .rpc("join_current_location", { start_id: node.id })
+
+    if (pathData) {
+      setSelectedLocationPath(pathData)
+    }
+    
     if (!isOpen) {
       setLoading(true)
       const { data, error } = await supabase
